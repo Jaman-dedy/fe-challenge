@@ -38,12 +38,13 @@ interface Props {
   isChecked: boolean;
   handleSwhitchChange: () => void;
   pluginsState: IState;
+  tabName?: string
 }
 
 export default function ResponsiveDrawer(props: Props) {
   const navigate = useNavigate()
   const dispatch = useDispatch();
-  const { window, children, tabdataState, isChecked, handleSwhitchChange, pluginsState } = props;
+  const { window, children, tabdataState, isChecked, handleSwhitchChange, pluginsState, tabName } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
@@ -79,7 +80,10 @@ export default function ResponsiveDrawer(props: Props) {
                   borderLeft: 'solid 4px red'
                 }
               }}
-              onClick={() => handleDispatchTab(value.title)}
+              onClick={() => {
+                handleDispatchTab(value.title)
+              
+              }}
             >
               <ListItemIcon>
                 {value.icon === 'icon-marketing' ? <AppsIcon /> : value.icon === 'icon-finance' ? <BrowseGalleryIcon /> : <EventAvailableIcon />}
@@ -114,10 +118,10 @@ export default function ResponsiveDrawer(props: Props) {
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: 'none' } }}
           >
-            <MenuIcon />
+            <MenuIcon /> 
           </IconButton>
           <Typography color="#0c344b" variant="h6" noWrap component="div">
-            Marketing Plugin
+           {tabName} Plugin
           </Typography>
         </Toolbar>
       </AppBar>

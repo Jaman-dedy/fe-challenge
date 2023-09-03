@@ -26,7 +26,7 @@ const Marketing = ({ tabdataState, pluginsState, tabState }: Props) => {
         isChecked={isAllChecked} 
         tabdataState={tabdataState} 
         pluginsState={pluginsState}
-        tabName='Marketing'
+        tabName='Personnel'
         >
             <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
                 {Array.isArray(tabState.data) && tabState.data.map((tab: any, key: number) => (

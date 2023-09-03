@@ -6,7 +6,7 @@ import fetchPlugins from 'redux/actions/plugins/fetchPlugins';
 import fetchTabdata from 'redux/actions/tabdata/fetchTabdata';
 
 
-import MarketingComponent from 'components/Marketing'
+import FinanceComponent from 'components/Finance'
 
 const typedUseSelectorHook: TypedUseSelectorHook<InitialState> = useSelector;
 
@@ -29,7 +29,7 @@ const Finance = () => {
     
 
     return (
-        <MarketingComponent 
+        <FinanceComponent 
         tabdataState={tabdataState} 
         pluginsState={pluginsState} 
         tabState={tabState} 

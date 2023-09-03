@@ -5,6 +5,8 @@ import Sidebar from 'components/common/Sidebar'
 import Card from 'components/common/Card'
 import { IState } from 'types';
 
+import Skeleton from 'components/common/Skeleton';
+
 type Props = {
     tabdataState: IState;
     pluginsState: IState;
@@ -18,6 +20,8 @@ const Marketing = ({ tabdataState, pluginsState, tabState }: Props) => {
         setIsAllchecked(!isAllChecked)
     }
 
+    console.log('tabState :>> ', tabState.data);
+
     return (
         <Sidebar 
         handleSwhitchChange={handleSwhitchChange}
@@ -30,6 +34,20 @@ const Marketing = ({ tabdataState, pluginsState, tabState }: Props) => {
                  <Card isAllChecked={isAllChecked} key={key} tab={tab} />   
                 ))}
             </Box>
+            {!Array.isArray(tabState.data) && Object.values(tabState.data).length === 0 && (
+                <>
+                <div>Please navigate with the tabs on your left</div>
+                <div style={{display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap'}}>
+                <Skeleton/>
+                <Skeleton/>
+                <Skeleton/>
+                <Skeleton/>
+                <Skeleton/>
+                <Skeleton/>
+                </div>
+                </>
+             
+            )}
 
         </Sidebar>
     )

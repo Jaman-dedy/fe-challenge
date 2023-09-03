@@ -1,0 +1,1 @@
+export const DISPATCH_TAB_STATE = 'DISPATCH_TAB_STATE';
